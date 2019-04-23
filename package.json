@@ -1,0 +1,27 @@
+{
+  "name": "gh.midi",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"*.js\"",
+    "test": "npm run lint && ava"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@gmartigny/eslint-config"
+    ]
+  },
+  "author": "GMartigny <guillaume.martigny@gmail.com>",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "got": "^9.6.0",
+    "scribbletune": "^2.0.2"
+  },
+  "devDependencies": {
+    "@gmartigny/eslint-config": "^1.2.3",
+    "ava": "^1.4.1",
+    "eslint": "^5.16.0"
+  }
+}

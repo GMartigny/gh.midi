@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "alias": "gh.midi",
+    "builds": [
+        {
+            "src": "./api.js",
+            "use": "@now/node"
+        },
+        {
+            "src": "./index.html",
+            "use": "@now/static"
+        }
+    ]
+}

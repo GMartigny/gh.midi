@@ -1,0 +1,79 @@
+const test = require("ava");
+const utils = require("./src/utils");
+const GHmidi = require("./index");
+
+test("main file", async (t) => {
+    const result = await GHmidi("GMartigny");
+    t.true(result.length > 0);
+    await t.throwsAsync(() => GHmidi("github"));
+});
+
+test("fetch data", async (t) => {
+    const data = await utils.fetchData("GMartigny");
+    t.true(Array.isArray(data.contributions));
+});
+
+test("filter data", (t) => {
+    const now = new Date(Date.now() - (24 * 3600 * 1000));
+    const contributions = [
+        {
+            date: `${now.getFullYear() - 3}-${now.getMonth() + 1}-${now.getDate()}`,
+        },
+        {
+            date: `${now.getFullYear() - 1}-${now.getMonth() + 1}-${now.getDate()}`,
+        },
+        {
+            date: `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`,
+        },
+        {
+            date: `${now.getFullYear() + 1}-${now.getMonth() + 1}-${now.getDate()}`,
+        },
+    ];
+    const filtered = utils.filterContributions(contributions, 367);
+    t.is(filtered.length, 2);
+});
+
+test("make notes", (t) => {
+    const data = [
+        {
+            intensity: 0,
+        },
+        {
+            intensity: 2,
+        },
+        {
+            intensity: 1,
+        },
+        {
+            intensity: 0,
+        },
+        {
+            intensity: 3,
+        },
+    ];
+    const notes = utils.makeNotes(data, ["a", "b", "c", "d"]);
+    t.deepEqual(notes, ["b", "a", "c"]);
+    t.throws(() => utils.makeNotes(data, ["a", "b", "c"]), RangeError);
+});
+
+test("make pattern", (t) => {
+    const data = [
+        {
+            intensity: 0,
+        },
+        {
+            intensity: 2,
+        },
+        {
+            intensity: 1,
+        },
+        {
+            intensity: 0,
+        },
+        {
+            intensity: 3,
+        },
+    ];
+    const pattern = utils.makePattern(data);
+    t.is(pattern, "-xx-x");
+});

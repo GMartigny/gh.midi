@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github contributions midi</title>
+</head>
+<body>
+<form id="form">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username">
+</form>
+<script>
+    const form = document.getElementById("form");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const username = form.username.value;
+        const url = `https://ghmidi.gmartigny.now.sh/api.js?username=${username}`;
+
+        fetch(url).then((response) => {
+            if (response.ok) {
+                return response.blob();
+            }
+        }).then((blob) => {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `${username}.mid`;
+            link.click();
+        });
+    })
+</script>
+</body>
+</html>
