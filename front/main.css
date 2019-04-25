@@ -14,12 +14,15 @@ body {
     border: solid #000;
     border-width: 0 0 1px 0;
 }
+
 #form #username {
     width: 300px;
 }
+
 #form #username:focus {
     outline: none;
 }
+
 #form #username:disabled {
     background-color: #eee;
     color: #666;
@@ -32,6 +35,7 @@ body {
 #form .loader {
     margin: 1em;
 }
+
 #form .loader:after {
     content: "";
     position: absolute;
@@ -43,9 +47,11 @@ body {
     animation: weeeee infinite 1s linear;
     display: none;
 }
+
 #form #username:disabled ~ .loader:after {
     display: inline-block;
 }
+
 @keyframes weeeee {
     0% {
         transform: rotate(0turn);
@@ -62,6 +68,43 @@ body {
 #dl {
     display: none;
 }
+
 #dl[href*="."] {
     display: block;
+}
+
+.github-corner svg {
+    fill:#151513; color:#fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+.github-corner .octo-arm {
+    transform-origin: 130px 106px;
+}
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+    0%, 100% {
+        transform: rotate(0)
+    }
+    20%, 60% {
+        transform: rotate(-25deg)
+    }
+    40%, 80% {
+        transform: rotate(10deg)
+    }
+}
+
+@media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+        animation: none
+    }
+
+    .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+    }
 }

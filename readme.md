@@ -21,6 +21,16 @@ Once installed using NPM, you can use it as CLI:
 Or require it on your node scripts:
 ```js
 const GHMidi = require("gh.midi");
-const midiBytes = GHMidi("[USERNAME]");
-
+const midiBytes = GHMidi("[USERNAME]", options);
 ```
+
+### Options
+
+#### Days
+Number of days from today to include. [default `365`]
+
+#### Chords
+Set of 4 chords to use in ascending order. [default: `["C", "F", "G", "Am"]`]
+
+## License
+[MIT](license)
