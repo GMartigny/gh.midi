@@ -1,11 +1,17 @@
 {
   "name": "gh.midi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Create a MIDI file from your Github contributions.",
+  "keywords": [
+    "github",
+    "contributions",
+    "sound"
+  ],
   "main": "index.js",
   "scripts": {
     "lint": "eslint \"*.js\"",
-    "test": "npm run lint && ava"
+    "test": "npm run lint && ava",
+    "deploy": "now --target production"
   },
   "bin": "bin/cli",
   "eslintConfig": {
@@ -15,7 +21,11 @@
   },
   "author": "GMartigny <guillaume.martigny@gmail.com>",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/GMartigny/gh.midi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GMartigny/gh.midi.git"
+  },
   "dependencies": {
     "got": "^9.6.0",
     "meow": "^5.0.0",
