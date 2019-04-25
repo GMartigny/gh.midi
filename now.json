@@ -1,6 +1,12 @@
 {
     "version": 2,
-    "alias": "gh.midi",
+    "alias": "ghmidi.now.sh",
+    "routes": [
+        {
+            "src": "/api/(?<username>[^/]+)\/?",
+            "dest": "/api.js?username=$username"
+        }
+    ],
     "builds": [
         {
             "src": "./api.js",
@@ -8,6 +14,10 @@
         },
         {
             "src": "./index.html",
+            "use": "@now/html-minifier"
+        },
+        {
+            "src": "./front/*",
             "use": "@now/static"
         }
     ]

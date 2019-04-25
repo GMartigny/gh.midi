@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#form {
+    margin: 20px;
+}
+
+#form input {
+    padding: .5em 1em;
+    background-color: transparent;
+    border: solid #000;
+    border-width: 0 0 1px 0;
+}
+#form #username {
+    width: 300px;
+}
+#form #username:focus {
+    outline: none;
+}
+#form #username:disabled {
+    background-color: #eee;
+    color: #666;
+}
+
+#form .submit {
+    cursor: pointer;
+}
+
+#form .loader {
+    margin: 1em;
+}
+#form .loader:after {
+    content: "";
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    animation: weeeee infinite 1s linear;
+    display: none;
+}
+#form #username:disabled ~ .loader:after {
+    display: inline-block;
+}
+@keyframes weeeee {
+    0% {
+        transform: rotate(0turn);
+    }
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+#playerWrapper {
+    margin: 20px;
+}
+
+#dl {
+    display: none;
+}
+#dl[href*="."] {
+    display: block;
+}

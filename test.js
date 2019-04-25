@@ -39,7 +39,16 @@ test("make notes", (t) => {
             intensity: 0,
         },
         {
-            intensity: 2,
+            intensity: 1,
+        },
+        {
+            intensity: 3,
+        },
+        {
+            intensity: 1,
+        },
+        {
+            intensity: 1,
         },
         {
             intensity: 1,
@@ -48,11 +57,14 @@ test("make notes", (t) => {
             intensity: 0,
         },
         {
-            intensity: 3,
+            intensity: 0,
+        },
+        {
+            intensity: 2,
         },
     ];
     const notes = utils.makeNotes(data, ["a", "b", "c", "d"]);
-    t.deepEqual(notes, ["b", "a", "c"]);
+    t.deepEqual(notes, ["a", "c", "a", "b"]);
     t.throws(() => utils.makeNotes(data, ["a", "b", "c"]), RangeError);
 });
 
@@ -62,7 +74,16 @@ test("make pattern", (t) => {
             intensity: 0,
         },
         {
-            intensity: 2,
+            intensity: 1,
+        },
+        {
+            intensity: 3,
+        },
+        {
+            intensity: 1,
+        },
+        {
+            intensity: 1,
         },
         {
             intensity: 1,
@@ -71,9 +92,12 @@ test("make pattern", (t) => {
             intensity: 0,
         },
         {
-            intensity: 3,
+            intensity: 0,
+        },
+        {
+            intensity: 2,
         },
     ];
     const pattern = utils.makePattern(data);
-    t.is(pattern, "-xx-x");
+    t.is(pattern, "xxx__--x");
 });

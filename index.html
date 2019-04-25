@@ -3,31 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Github contributions midi</title>
+    <link rel="stylesheet" type="text/css" href="./front/main.css">
+    <link rel="stylesheet" type="text/css" href="./front/player.css">
 </head>
 <body>
+<h1>Github contributions as MIDI</h1>
 <form id="form">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username">
+    <label for="username">Github username</label><br>
+    <input type="text" id="username" name="username" spellcheck="false">
+    <input type="submit" value="♫" class="submit">
+    <div class="loader"></div>
 </form>
+<div id="playerWrapper"></div>
+<a id="dl">Download 🡇</a>
+<script src="./front/player.js"></script>
+<script src="//cdn.jsdelivr.net/npm/midi-player-js@2.0.5"></script>
+<script src="//cdn.jsdelivr.net/npm/soundfont-player@0.11.0/dist/soundfont-player.min.js"></script>
 <script>
+    const playerWrapper = document.getElementById("playerWrapper");
+    const downloadLink = document.getElementById("dl");
+    const player = new Player();
     const form = document.getElementById("form");
     form.addEventListener("submit", (event) => {
         event.preventDefault();
+        downloadLink.href = "";
+        playerWrapper.innerHTML = "";
+        form.username.disabled = true;
 
         const username = form.username.value;
-        const url = `https://ghmidi.gmartigny.now.sh/api.js?username=${username}`;
+        const url = `//ghmidi.now.sh/api/${username}`;
 
         fetch(url).then((response) => {
             if (response.ok) {
                 return response.blob();
             }
         }).then((blob) => {
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
+            form.username.disabled = false;
+            downloadLink.href = URL.createObjectURL(blob);
             link.download = `${username}.mid`;
-            link.click();
+
+            player.start(blob);
+            playerWrapper.appendChild(player.controls);
         });
-    })
+    });
+    form.username.focus();
 </script>
 </body>
 </html>

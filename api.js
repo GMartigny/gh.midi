@@ -1,20 +1,28 @@
 const { parse } = require("url");
-const GHmidi = require("./index");
+const GHMidi = require("./index");
 
 module.exports = (request, response) => {
-    const { username } = parse(request.url, true).query;
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    const { username, days, chordsStr } = parse(request.url, true).query;
+    const chords = chordsStr && chordsStr.split(",");
 
     if (!username) {
+        response.statusCode = 500;
         response.end("Username required");
         return;
     }
 
-    GHmidi(username).then((bytes) => {
+    GHMidi(username, {
+        days,
+        chords,
+    }).then((bytes) => {
+        response.statusCode = 200;
         response.setHeader("Content-Type", "audio/midi");
         response.setHeader("Content-Disposition", `attachment;filename=${username}.mid`);
         response.write(Buffer.from(bytes, "binary"));
     }).catch((error) => {
-        response.write(error.stack);
+        response.statusCode = 500;
+        response.write(error.message);
     }).then(() => {
         response.end();
     });

@@ -1,0 +1,34 @@
+.player button {
+    position: relative;
+    font-size: 30px;
+    background-color: #444;
+    border: none;
+    padding: .5em .8em;
+    box-shadow: 2px 2px 2px #222;
+    cursor: pointer;
+    line-height: 1em;
+    color: #e9e9e9;
+    text-shadow: -1px -1px 0 #aaa;
+}
+.player button:active {
+    box-shadow: 1px 1px 1px #222;
+    left: 1px;
+    top: 1px;
+}
+.player button:focus {
+    outline: none;
+}
+.player button:first-child {
+    border-radius: 50% 0 0 50%;
+}
+.player button:last-child {
+    border-radius: 0 50% 50% 0;
+}
+
+.player button.play:before {
+    content: "▶";
+}
+
+.player button.pause:before {
+    content: "⏸";
+}
