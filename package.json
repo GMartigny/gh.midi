@@ -32,8 +32,8 @@
     "scribbletune": "^2.0.2"
   },
   "devDependencies": {
-    "@gmartigny/eslint-config": "^1.2.3",
-    "ava": "^1.4.1",
-    "eslint": "^5.16.0"
+    "@gmartigny/eslint-config": "^1.3.1",
+    "ava": "^2.2.0",
+    "eslint": "^6.0.1"
   }
 }
