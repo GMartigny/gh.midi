@@ -29,7 +29,7 @@ test("filter data", (t) => {
             date: `${now.getFullYear() + 1}-${now.getMonth() + 1}-${now.getDate()}`,
         },
     ];
-    const filtered = utils.filterContributions(contributions, 367);
+    const filtered = utils.filterContributions(contributions, 368);
     t.is(filtered.length, 2);
 });
 
@@ -65,7 +65,9 @@ test("make notes", (t) => {
     ];
     const notes = utils.makeNotes(data, ["a", "b", "c", "d"]);
     t.deepEqual(notes, ["a", "c", "a", "b"]);
-    t.throws(() => utils.makeNotes(data, ["a", "b", "c"]), RangeError);
+    t.throws(() => utils.makeNotes(data, ["a", "b", "c"]), {
+        instanceOf: RangeError,
+    });
 });
 
 test("make pattern", (t) => {

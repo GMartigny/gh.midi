@@ -7,9 +7,7 @@ const API_URL = "https://github-contributions-api.now.sh/v1";
  * @param {String} username - Github username
  * @return {Promise<Object>}
  */
-const fetchData = async username => (await got(`${API_URL}/${username}`, {
-    json: true,
-})).body;
+const fetchData = username => got(`${API_URL}/${username}`).json();
 
 /**
  * Keep contributions point inside a time span

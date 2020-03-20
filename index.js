@@ -27,5 +27,5 @@ module.exports = async (username, { days = 365, chords = ["C", "F", "G", "Am"] }
         pattern,
     });
 
-    return new Promise(resolve => scribbleTune.midi(clip, null, (err, bytes) => resolve(bytes)));
+    return scribbleTune.midi(clip, null);
 };
