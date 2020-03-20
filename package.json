@@ -1,39 +1,39 @@
 {
-  "name": "gh.midi",
-  "version": "1.0.1",
-  "description": "Create a MIDI file from your Github contributions.",
-  "keywords": [
-    "github",
-    "contributions",
-    "sound"
-  ],
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint \"*.js\"",
-    "test": "npm run lint && ava",
-    "deploy": "now --target production"
-  },
-  "bin": "bin/cli",
-  "eslintConfig": {
-    "extends": [
-      "@gmartigny/eslint-config"
-    ]
-  },
-  "author": "GMartigny <guillaume.martigny@gmail.com>",
-  "license": "MIT",
-  "homepage": "https://github.com/GMartigny/gh.midi",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GMartigny/gh.midi.git"
-  },
-  "dependencies": {
-    "got": "^9.6.0",
-    "meow": "^5.0.0",
-    "scribbletune": "^2.0.2"
-  },
-  "devDependencies": {
-    "@gmartigny/eslint-config": "^1.3.1",
-    "ava": "^2.2.0",
-    "eslint": "^6.0.1"
-  }
+    "name": "gh.midi",
+    "version": "1.0.1",
+    "description": "Create a MIDI file from your Github contributions.",
+    "keywords": [
+        "github",
+        "contributions",
+        "sound"
+    ],
+    "main": "index.js",
+    "scripts": {
+        "test": "ava",
+        "deploy": "now --target production"
+    },
+    "bin": "bin/cli",
+    "eslintConfig": {
+        "extends": [
+            "@gmartigny/eslint-config"
+        ]
+    },
+    "author": "GMartigny <guillaume.martigny@gmail.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/GMartigny/gh.midi",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GMartigny/gh.midi.git"
+    },
+    "dependencies": {
+        "allow-cors": "^1.0.0",
+        "got": "^10.6.0",
+        "meow": "^6.0.1",
+        "scribbletune": "^3.5.1"
+    },
+    "devDependencies": {
+        "@gmartigny/eslint-config": "^1.4.2",
+        "ava": "^3.5.0",
+        "eslint": "^6.8.0"
+    }
 }
