@@ -1,7 +1,7 @@
 .idea/
-front/
+.github/
+.now/
+api/
+public/
 .nowignore
-api.js
-index.html
-now.json
 test.js
