@@ -1,5 +1,5 @@
 const scribbleTune = require("scribbletune");
-const { fetchData, filterContributions, makeNotes, makePattern } = require("./src/utils");
+const { fetchData, filterContributions, makeNotes, makePattern } = require("./utils");
 
 /**
  * @typedef {Object} Options

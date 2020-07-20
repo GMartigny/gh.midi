@@ -1,12 +1,11 @@
 # gh.midi
 
 [![NPM version](https://flat.badgen.net/npm/v/gh.midi)](https://www.npmjs.com/package/gh.midi)
-[![package publish size](https://flat.badgen.net/packagephobia/publish/gh.midi)](https://packagephobia.now.sh/result?p=gh.midi)
 
 Download a midi file of your github contributions.
 
 
-## Install
+## Installation
 
 Using NPM:
     $ npm install gh.midi

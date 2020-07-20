@@ -1,6 +1,6 @@
 const test = require("ava");
 const utils = require("./src/utils");
-const GHmidi = require("./index");
+const GHmidi = require(".");
 
 test("main file", async (t) => {
     const result = await GHmidi("GMartigny");
@@ -10,7 +10,7 @@ test("main file", async (t) => {
 
 test("fetch data", async (t) => {
     const data = await utils.fetchData("GMartigny");
-    t.true(Array.isArray(data.contributions));
+    t.true(data.contributions.length > 0);
 });
 
 test("filter data", (t) => {
