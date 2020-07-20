@@ -1,5 +1,5 @@
 const allow = require("allow-cors");
-const GHMidi = require("../index");
+const GHMidi = require("..");
 
 module.exports = async (request, response) => {
     const { username } = request.query;
@@ -17,7 +17,7 @@ module.exports = async (request, response) => {
 
         response.statusCode = 200;
         response.setHeader("Content-Type", "audio/midi");
-        response.setHeader("Content-Disposition", `attachment;filename=${username}.mid`);
+        response.setHeader("Content-Disposition", `attachment;filename=${username}.midi`);
         response.write(Buffer.from(bytes, "binary"));
     }
     catch ({ message }) {
