@@ -17,6 +17,11 @@ Using the website interface
     https://ghmidi.now.sh/
 
 
+### CLI
+
+A [CLI version](https://github.com/GMartigny/gh.midi-cli) is also available for this package.
+
+
 ## Usage
 
 Once installed using NPM, you can require it on your node scripts:
