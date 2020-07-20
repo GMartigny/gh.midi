@@ -20,10 +20,7 @@ Using the website interface
 
 ## Usage
 
-Once installed using NPM, you can use it as CLI:
-    $ gh.midi [USERNAME]
-
-Or require it on your node scripts:
+Once installed using NPM, you can require it on your node scripts:
 ```js
 const GHMidi = require("gh.midi");
 const midiBytes = GHMidi("[USERNAME]", options);

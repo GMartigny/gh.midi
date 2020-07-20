@@ -12,7 +12,6 @@
         "test": "ava",
         "deploy": "now --target production"
     },
-    "bin": "bin/cli",
     "eslintConfig": {
         "extends": [
             "@gmartigny/eslint-config"
