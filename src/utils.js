@@ -1,6 +1,6 @@
 const got = require("got");
 
-const API_URL = "https://github-contributions-api.now.sh/v1";
+const API_URL = "https://github-contributions.now.sh/api/v1";
 
 /**
  * Gather contributions data from Github
